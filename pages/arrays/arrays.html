@@ -11,9 +11,21 @@
     <div class="container-lg">
         <h1>Arrays</h1>
         <div class="row">
-            <div class="col-12" id="innerData">
-
+            <div class="col-12">
+                <!-- MÉTODOS DE ARRAYS -->
+                <button class="btn btn-primary" onclick="listFruits()">Listar frutas</button>
             </div>
+        </div>
+        <!-- <form> -->
+            <div class="mb-3">
+                <label for="fruits" class="form-label">Ingresar frutas</label>
+                <input type="text" class="form-control" id="fruits" onkeyup="addFruit(event)"
+                       aria-describedby="fruitInput" placeholder="Ingrese nombre de la fruta">
+            </div>
+            <button class="btn btn-primary" onclick="addFruit()" >Añadir</button>
+        <!-- </form> -->
+        <div class="row">
+            <code class="col-12" id="result"></code>
         </div>
     </div>
     
