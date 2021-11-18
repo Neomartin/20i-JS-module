@@ -19,10 +19,13 @@
         <!-- <form> -->
             <div class="mb-3">
                 <label for="fruits" class="form-label">Ingresar frutas</label>
-                <input type="text" class="form-control" id="fruits" onkeyup="addFruit(event)"
+                <!-- onkeyup="addFruit(event)" -->
+                <input type="text" class="form-control" id="fruits" 
                        aria-describedby="fruitInput" placeholder="Ingrese nombre de la fruta">
             </div>
             <button class="btn btn-primary" onclick="addFruit()" >Añadir</button>
+            <button class="btn btn-danger" onclick="deleteFruit()">Eliminar fruta</button>
+            <button class="btn btn-success" onclick="countVowels()">Contar vocales</button>
         <!-- </form> -->
         <div class="row">
             <code class="col-12" id="result"></code>
