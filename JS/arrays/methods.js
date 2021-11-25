@@ -1,15 +1,51 @@
-let fruits = ["naranja", "manzana", "banana", "kiwi", "naranja", "limon", "frutilla", "uva", "durazno", "naranja", "manzana", "banana", "kiwi", "naranja", "limon", "frutilla", "uva", "durazno", "naranja", "manzana", "banana", "kiwi", "naranja", "limon", "frutilla", "uva", "durazno", "naranja", "manzana", "banana", "kiwi", "naranja", "limon", "frutilla"];
+let fruits = ["naranja", "manzana", "banana",  "naranja", "limon", "frutilla", "uva", "durazno", "naranja", "manzana", "banana", "kiwi", "naranja", "limon", "frutilla", "uva", "durazno", "naranja", "manzana", "banana", "kiwi", "naranja", "limon", "frutilla", "uva", "durazno", "naranja", "manzana", "banana", "kiwi", "naranja", "limon", "frutilla"];
 
-console.log(fruits.length)
+// console.log(fruits.length);
 // El método slice() devuelve una copia de una parte del array dentro de un nuevo array empezando por inicio hasta fin (fin no incluido). El array original no se modificará.
 let rebanada = fruits.slice(3, 8);
-console.log(rebanada);
+// console.log(rebanada);
 // El array original se mantiene sin modificar
-console.log(fruits);
+// console.log(fruits);
 
-
+// TOMAMOS ELEMENTOS DEL DOM Y LOS ASIGNAMOS A UNA VARIABLE
 const inputHTMLElement = document.querySelector('#fruits');
 const resultHTML = document.querySelector('#result');
+const textAreaHTML = document.getElementById('textArea');
+console.log(textAreaHTML);
+// X Leer una cadena de texto en un formulario
+// Generar un array con la función split(). 
+// Posteriormente, mostrar la siguiente información: 
+// c- las palabras colocadas en orden inverso, 
+// a- Número de palabras, 
+// b- primera palabra, última palabra, 
+// d- las palabras ordenadas de la a la z 
+// e- las palabras ordenadas de la z a la a. 
+// f- Sacar toda esta información en una ventana nueva.
+function resolveExcercise(){
+    let text = textAreaHTML.value;
+    const textArray = text.split(" ");
+
+
+        //NUEVO array sin estar vinculado al que recorro
+    const textArrayParaModicar = textArray.map(word => {
+        //checkear espacios vacios
+        if(word) {
+            return word
+        }
+    });
+
+
+    const wordsCount = textArray.length;
+    console.log(`Cantidad de palabras ${wordsCount}`);
+    console.log(`Array antes del shift`, textArray);
+    const reverseTextArray = textArrayParaModicar.reverse();
+    const firstWord = textArray[0];
+    const lastWord = textArray[textArray.length - 1]
+    console.log(`Primer palabra: ${firstWord} Última: ${ lastWord}`);
+    console.log(textArray);
+    console.log(textArrayParaModicar);
+}
+
 
 function countVowels(){
     // Tomar una string del input.
@@ -39,7 +75,8 @@ function listFruits(){
     //     resultHTML.innerHTML += `${fruits[i]} <br>`;
     // }
     fruits.forEach(function(fruit, index) {
-        resultHTML.innerHTML += `${index} - ${fruit} <br>`;
+        resultHTML.innerHTML += `<button class="btn btn-danger btn-sm" onclick="deleteFruitByIndex(${index})">X</button> 
+                                    ${index} - ${fruit} <br><br>`;
     });
 }
 
@@ -69,11 +106,28 @@ function deleteFruit(){
             // SPLICE arrayName.splice(indice, cantidadDeElementosABorrar, Reemplazo)
             fruits.splice(idx, 1);
         }
-    })
+    });
     // Volver a listar las frutas en cada llamada a la función
     console.log(fruits);
     listFruits();
 }
 
+function deleteFruitByIndex(index) {
+    console.log(index);
+    fruits.splice(index, 1);
+    listFruits();
+}
+
+
+
 listFruits();
-console.log(fruits)
+// console.log(fruits);
+
+/*
+SPLIT
+REVERSE
+POP
+SHIFT
+UNSHIFT
+SORT
+*/
