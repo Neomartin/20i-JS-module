@@ -15,35 +15,49 @@ console.log(textAreaHTML);
 // X Leer una cadena de texto en un formulario
 // Generar un array con la función split(). 
 // Posteriormente, mostrar la siguiente información: 
-// c- las palabras colocadas en orden inverso, 
-// a- Número de palabras, 
-// b- primera palabra, última palabra, 
-// d- las palabras ordenadas de la a la z 
-// e- las palabras ordenadas de la z a la a. 
+// // c- las palabras colocadas en orden inverso, 
+// // a- Número de palabras, 
+// // b- primera palabra, última palabra, 
+// // d- las palabras ordenadas de la a la z 
+// // e- las palabras ordenadas de la z a la a. 
 // f- Sacar toda esta información en una ventana nueva.
 function resolveExcercise(){
     let text = textAreaHTML.value;
     const textArray = text.split(" ");
 
-
         //NUEVO array sin estar vinculado al que recorro
     const textArrayParaModicar = textArray.map(word => {
         //checkear espacios vacios
         if(word) {
-            return word
+            return word;
         }
     });
+    // Generamos un array nuevo con el operador spread, con una instancia diferente al array original
+    const nuevoArrayParaOrdenarDescente = [...textArray];
+    const nuevoArrayParaOrdenarAscendente = [...textArray];
+    // Ordenamos el nuevo array de forma descendente
+    nuevoArrayParaOrdenarDescente.sort(function(a, b) {
+        return b.localeCompare(a);
+    });  
+    // Ordenamos el nuevo array de forma ascendente
+    nuevoArrayParaOrdenarAscendente.sort(function(a, b) {
+        return a.localeCompare(b);
+    })
 
-
+    console.log(`ASCENDENTE`, nuevoArrayParaOrdenarAscendente);
+    console.log(`DESCENDENTE`, nuevoArrayParaOrdenarDescente);
+    // Contando la cantidad de elementos "palabras" en mi array para saber el número
     const wordsCount = textArray.length;
     console.log(`Cantidad de palabras ${wordsCount}`);
-    console.log(`Array antes del shift`, textArray);
-    const reverseTextArray = textArrayParaModicar.reverse();
+    // Invertimos el array 
+    textArrayParaModicar.reverse();
+    console.log(textArrayParaModicar);
+
+
+    // Obtenemos primer palabra del texto y última (array)
     const firstWord = textArray[0];
     const lastWord = textArray[textArray.length - 1]
     console.log(`Primer palabra: ${firstWord} Última: ${ lastWord}`);
-    console.log(textArray);
-    console.log(textArrayParaModicar);
 }
 
 
