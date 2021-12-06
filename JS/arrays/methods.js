@@ -1,4 +1,76 @@
-let fruits = ["naranja", "manzana", "banana",  "naranja", "limon", "frutilla", "uva", "durazno", "naranja", "manzana", "banana", "kiwi", "naranja", "limon", "frutilla", "uva", "durazno", "naranja", "manzana", "banana", "kiwi", "naranja", "limon", "frutilla", "uva", "durazno", "naranja", "manzana", "banana", "kiwi", "naranja", "limon", "frutilla"];
+let fruits = ["Albaricoque","Arandano","Aguacate","Breva","Kiwi","Limon","Cereza","Ciruela","Frambuesa","Fresa","Lima","Granada","Higo","Mandarina","Mora","Manzana","Coco","Melon","Naranja","Membrillo","Uva","Pera","Sandía","Pomelo","Platano","Piña","Maracuya","Mango"
+];
+let people = [
+    { name: "Angelina Jolie", member: true, age: 110, car: 'Ferrari', pet: 'Cachito'  }, //FILTRADO
+    { name: "Paris Hilton", member: true, age: 5 }, //FILTRADO
+    { name: "Eric Jones", member: false, age: 72 },
+    { name: "Kayne West", member: false, age: 16 },
+    { name: "Bob Ziroll", member: true, age: 100 }, //FILTRADO
+];
+
+function filterByMembership(){
+    resultHTML.innerHTML = '<h3>Miembros del salón de la fama </h3>'
+    // filtro aquellos famosos que son miembros del salón de la fama
+    let members = people.filter(celebrity => celebrity.member && celebrity.age > 18);
+    //asigno a members un nuevo array pero solo con los nombres del famoso 
+    members = members.map(person => {
+        resultHTML.innerHTML += `${person.name} <br>`;
+        return person.name;
+    });
+    console.log(members);
+    console.log(people);
+}               
+[
+    ['name', 'Jose']
+]
+
+const findAdultCelebrity = function(){
+    resultHTML.innerHTML = '<h3>Primer miembro anciano encontrado</h3>'
+    const firstOldMember = people.findIndex(celebrity => celebrity.age >= 60);
+    Object.entries(firstOldMember).forEach(value => {
+        resultHTML.innerHTML += `${value[0]}: ${value[1]} <br>` ;
+        if(value[0] === 'car') {
+            console.log(`Ella tiene un auto`)
+        }
+    });
+}
+function countAgeAmount() {
+    // let ageAmount = 0;
+    // people.forEach(celebrity => {
+    //     if(celebrity.member) {
+    //         ageAmount += celebrity.age
+    //     }
+    // })
+    
+    let ageSum = people.reduce((acc, celebrity) => {
+        if(celebrity.member) {
+            return acc + celebrity.age
+        }
+        return acc
+    }, 1000)
+
+    console.log(ageSum)
+}
+// EJERCICIO FILTRAR A PARTIR DE BÚSQUEDA
+
+
+//0 - Cuando el user escribe tengo que tomar evento
+const searchInput = document.getElementById('fruitToSearch');
+function searchFruit() {
+    resultHTML.innerHTML = '';
+    //1- Obtener el contenido dle input a medida que la persona escribe
+    const stringToSearch = searchInput.value.toLocaleLowerCase();
+    
+    // 2- Recorrer el array de frutas
+    const filteredFruits = fruits.filter(fruit => fruit.toLowerCase().includes(stringToSearch))
+    listFruits(filteredFruits);
+    // 3- Por cada elemento del array tengo que ver si el texto que tengo en mi input se encuentra
+    // 4- En el caso de que el texto se encuentre debo armar un nuevo array con los elementos filtrados
+}
+
+
+
+
 
 // console.log(fruits.length);
 // El método slice() devuelve una copia de una parte del array dentro de un nuevo array empezando por inicio hasta fin (fin no incluido). El array original no se modificará.
@@ -12,25 +84,22 @@ const inputHTMLElement = document.querySelector('#fruits');
 const resultHTML = document.querySelector('#result');
 const textAreaHTML = document.getElementById('textArea');
 console.log(textAreaHTML);
-// X Leer una cadena de texto en un formulario
-// Generar un array con la función split(). 
-// Posteriormente, mostrar la siguiente información: 
-// // c- las palabras colocadas en orden inverso, 
-// // a- Número de palabras, 
-// // b- primera palabra, última palabra, 
-// // d- las palabras ordenadas de la a la z 
-// // e- las palabras ordenadas de la z a la a. 
-// f- Sacar toda esta información en una ventana nueva.
+
+function countWords(){
+    resultHTML.innerHTML = `<h3>Ejercicio: </h3> a- Número de palabras, <br>`;
+    let text = textAreaHTML.value;
+    const textArray = text.split(" ");
+    // Contando la cantidad de elementos "palabras" en mi array para saber el número
+    const wordsCount = textArray.length;
+    resultHTML.innerHTML += `Cantidad de palabras ${wordsCount}<hr>`;
+}
+
+function obtainInputText(){
+    
+}
+
 function resolveExcercise(){
-    resultHTML.innerHTML = `<h3>Ejercicio: </h3>
-    X Leer una cadena de texto en un formulario <br>
-    Generar un array con la función split(). <br>
-    Posteriormente, mostrar la siguiente información: <br>
-    c- las palabras colocadas en orden inverso, <br>
-    a- Número de palabras, <br>
-    b- primera palabra, última palabra, <br>
-    d- las palabras ordenadas de la a la z  <br>
-    e- las palabras ordenadas de la z a la a.<br>`;
+    resultHTML.innerHTML = ``;
 
     let text = textAreaHTML.value;
     const textArray = text.split(" ");
@@ -56,9 +125,7 @@ function resolveExcercise(){
 
     resultHTML.innerHTML += `ASCENDENTE ${nuevoArrayParaOrdenarAscendente} <hr>`;
     resultHTML.innerHTML += `DESCENDENTE ${nuevoArrayParaOrdenarDescente} <hr>`;
-    // Contando la cantidad de elementos "palabras" en mi array para saber el número
-    const wordsCount = textArray.length;
-    resultHTML.innerHTML += `Cantidad de palabras ${wordsCount}<hr>`;
+    
     // Invertimos el array 
     textArrayParaModicar.reverse();
     resultHTML.innerHTML += `Reverse de array original ${textArrayParaModicar}<hr>`;
@@ -90,14 +157,14 @@ function countVowels(){
     resultHTML.innerHTML = `La cantidad de vocales encontradas es de ${vowelsCount}`
 }
 
-function listFruits(){
-    console.log(fruits.length);
+function listFruits(fruitsArray = fruits){
+    console.log(fruitsArray.length);
     resultHTML.innerHTML = '<h1>Listado de de frutas y verduras</h1>';
     // console.log('Desde función', fruits);
     // for(let i=0; i < fruits.length; i++) {
     //     resultHTML.innerHTML += `${fruits[i]} <br>`;
     // }
-    fruits.forEach(function(fruit, index) {
+    fruitsArray.forEach(function(fruit, index) {
         resultHTML.innerHTML += `<button class="btn btn-danger btn-sm" onclick="deleteFruitByIndex(${index})">X</button> 
                                     ${index} - ${fruit} <br><br>`;
     });
