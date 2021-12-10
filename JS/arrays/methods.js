@@ -1,5 +1,15 @@
 let fruits = ["Albaricoque","Arandano","Aguacate","Breva","Kiwi","Limon","Cereza","Ciruela","Frambuesa","Fresa","Lima","Granada","Higo","Mandarina","Mora","Manzana","Coco","Melon","Naranja","Membrillo","Uva","Pera","Sandía","Pomelo","Platano","Piña","Maracuya","Mango"
 ];
+
+const currentUser = {
+    name: 'Pedro',
+    lastName: 'Perez',
+    email: 'pedro@gmail.com',
+    password: '12345',
+    accessLevel: 'admin',
+    canAccess: false
+};
+
 let people = [
     { name: "Angelina Jolie", member: true, age: 110, car: 'Ferrari', pet: 'Cachito'  }, //FILTRADO
     { name: "Paris Hilton", member: true, age: 5 }, //FILTRADO
@@ -165,11 +175,17 @@ function listFruits(fruitsArray = fruits){
     //     resultHTML.innerHTML += `${fruits[i]} <br>`;
     // }
     fruitsArray.forEach(function(fruit, index) {
-        resultHTML.innerHTML += `<button class="btn btn-danger btn-sm" onclick="deleteFruitByIndex(${index})">X</button> 
-                                    ${index} - ${fruit} <br><br>`;
+        if(fruit.active) {
+            resultHTML.innerHTML += `<button class="btn btn-danger btn-sm" onclick="deleteFruitByIndex(${index})">X</button> 
+            ${index} - ${fruit} <br><br>`;
+        }
+        
     });
 }
-
+function enviarFormulario(event) {
+    event.preventDefault();
+    console.info('Formulario enviado')
+}
 function addFruit(evt){
     // console.log(evt)
     if(evt && evt.keyCode !== 13) {
