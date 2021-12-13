@@ -7,3 +7,7 @@ body {
     margin: 1rem;
     border-radius: .5rem;
 }
+
+.img-preview {
+    display: none;
+}

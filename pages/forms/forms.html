@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <script src="/JS/forms.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <header class="p-2 bg-primary text-white">
+        <div class="container-fluid">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="/index.html" class="nav-link text-dark">Home</a></li>
+              <li><a href="/pages/conditionals.html" class="nav-link px-2 text-white">Condicionales</a></li>
+              <li><a href="/pages/operators.html" class="nav-link px-2 text-white">Operadores</a></li>
+              <li><a href="/pages/functions/functions.html" class="nav-link px-2 text-white">Funciones</a></li>
+              <li><a href="/pages/arrays/arrays.html" class="nav-link px-2 text-white">Arreglos</a></li>
+              <li><a href="/pages/forms/forms.html" class="nav-link px-2 text-white">Formularios</a></li>
+            </ul>
+          </div>
+        </div>
+    </header>
+    <main class="container">
+        <section class="p-3">
+            <h1>Nuevo producto</h1>
+            <div class="row">
+                <div class="col-8">
+                    <form class="form-floating" id="product-form" onsubmit="setProduct()">
+                        <div class="mb-2">
+                            <label for="">Producto</label>
+                            <input type="text" name="name" placeholder="producto" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label for="">Imagen</label>
+                            <input type="text" name="url" placeholder="Imagen" class="form-control" onchange="loadImage()">
+                        </div>
+                        <div class="mb-2">
+                            <label for="">Detalle</label>
+                            <textarea rows="3" name="detail" class="form-control"></textarea>  
+                        </div>
+                        <div class="mb-2 row">
+                            <div class="col-4">
+                                <label for="">Categoría</label>
+                                <select name="category" id="category" class="form-select">
+                                    <option value="sport" selected>Deportes</option>
+                                    <option value="action">Action</option>
+                                    <option value="shooter">Shooter</option>
+                                    <option value="racing">Carreras</option>
+                                </select>
+                                
+                            </div>
+                            <div class="col-4">
+                                <label for="price">Precio</label>
+                                <input type="number" name="price" id="price"  class="form-select">
+                            </div>
+                            <div class="col-4">
+                                <label for="">Valoracion</label>
+                                <input type="range" name="rate" min="1" max="10" step="0.25" value="5" class="form-range" onchange="">
+                            </div>
+                        </div>
+        
+                        <div class="mb-2 row">
+                            <div class="col-6">
+                                <label for="">Etiquetas</label>
+                                <div><input type="checkbox" name="tags" id="" class="form-check-input me-2"><label for="" class="form-check-label">War</label></div>
+                                <div><input type="checkbox" name="tags" id="" class="form-check-input me-2"><label for="" class="form-check-label">Adventure</label></div>
+                                <div><input type="checkbox" name="tags" id="" class="form-check-input me-2"><label for="" class="form-check-label">Strategy</label></div>
+                                <div><input type="checkbox" name="tags" id="" class="form-check-input me-2"><label for="" class="form-check-label">Multiplayer</label></div>
+                                <div><input type="checkbox" name="tags" id="" class="form-check-input me-2"><label for="" class="form-check-label">Single Player</label></div>
+                                <div><input type="checkbox" name="tags" id="" class="form-check-input me-2"><label for="" class="form-check-label">Online</label></div>
+                            </div>
+                            <div class="col-6">
+                                <label for="">Tipo de formato</label>
+                                <div>
+                                    <input type="radio" name="type" id=""><label for="" class="form-check-label">Físico</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="type" id=""><label for="" class="form-check-label">Digital</label>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <button class="btn btn-primary" type="submit">Cargar</button>
+                    </form>
+                </div>
+                <div class="col-4">
+                        <img src="" alt="Product image preload" class="img-preview" id="img-preview">
+                </div>
+            </div>
+            
+        </section>
+    </main>
+    
+</body>
+</html>
