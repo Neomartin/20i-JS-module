@@ -29,20 +29,28 @@
         <section class="p-3">
             <h1>Nuevo producto</h1>
             <div class="row">
-                <div class="col-8">
+                <div class="col-6">
                     <form class="form-floating" id="product-form" onsubmit="setProduct()">
-                        <div class="mb-2">
-                            <label for="">Producto</label>
-                            <input type="text" name="name" placeholder="producto" class="form-control">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="mb-2">
+                                    <label for="">Producto</label>
+                                    <input type="text" name="name" placeholder="producto" class="form-control">
+                                </div>
+                                <div class="mb-2">
+                                    <label for="">Imagen</label>
+                                    <input type="text" name="url" placeholder="Imagen" class="form-control" onchange="loadImage()">
+                                </div>
+                                <div class="mb-2">
+                                    <label for="">Detalle</label>
+                                    <textarea rows="3" name="detail" class="form-control"></textarea>  
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <img src="" alt="Product image preload" class="img-preview" id="img-preview">
+                            </div>
                         </div>
-                        <div class="mb-2">
-                            <label for="">Imagen</label>
-                            <input type="text" name="url" placeholder="Imagen" class="form-control" onchange="loadImage()">
-                        </div>
-                        <div class="mb-2">
-                            <label for="">Detalle</label>
-                            <textarea rows="3" name="detail" class="form-control"></textarea>  
-                        </div>
+                        
                         <div class="mb-2 row">
                             <div class="col-4">
                                 <label for="">Categoría</label>
@@ -88,8 +96,8 @@
                         <button class="btn btn-primary" type="submit">Cargar</button>
                     </form>
                 </div>
-                <div class="col-4">
-                        <img src="" alt="Product image preload" class="img-preview" id="img-preview">
+                <div class="col-6">
+                        LISTADO PRODUCTOS
                 </div>
             </div>
             
