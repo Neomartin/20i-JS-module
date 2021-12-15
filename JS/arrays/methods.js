@@ -1,5 +1,4 @@
-let fruits = ["Albaricoque","Arandano","Aguacate","Breva","Kiwi","Limon","Cereza","Ciruela","Frambuesa","Fresa","Lima","Granada","Higo","Mandarina","Mora","Manzana","Coco","Melon","Naranja","Membrillo","Uva","Pera","Sandía","Pomelo","Platano","Piña","Maracuya","Mango"
-];
+let fruits = JSON.parse(localStorage.getItem('fruits')) || [];
 
 const currentUser = {
     name: 'Pedro',
@@ -90,7 +89,7 @@ let rebanada = fruits.slice(3, 8);
 // console.log(fruits);
 
 // TOMAMOS ELEMENTOS DEL DOM Y LOS ASIGNAMOS A UNA VARIABLE
-const inputHTMLElement = document.querySelector('#fruits');
+const inputHTMLElement = document.querySelector('#newFruit');
 const resultHTML = document.querySelector('#result');
 const textAreaHTML = document.getElementById('textArea');
 console.log(textAreaHTML);
@@ -175,7 +174,7 @@ function listFruits(fruitsArray = fruits){
     //     resultHTML.innerHTML += `${fruits[i]} <br>`;
     // }
     fruitsArray.forEach(function(fruit, index) {
-        if(fruit.active) {
+        if(fruit) {
             resultHTML.innerHTML += `<button class="btn btn-danger btn-sm" onclick="deleteFruitByIndex(${index})">X</button> 
             ${index} - ${fruit} <br><br>`;
         }
@@ -193,9 +192,12 @@ function addFruit(evt){
     }
     // event.preventDefault()
     const newFruit = inputHTMLElement.value;
-    console.log(newFruit);
-    fruits.push(newFruit);
-    listFruits();
+    // console.log(newFruit);
+    let data = JSON.parse(localStorage.getItem('fruits')) || []
+    data.push(newFruit);
+    localStorage.setItem('fruits', JSON.stringify(data));
+    fruits = JSON.parse(localStorage.getItem('fruits'))
+    listFruits(fruits);
     inputHTMLElement.value = '';
     inputHTMLElement.focus();
 }
@@ -205,17 +207,20 @@ function deleteFruit(){
     let fruitToSearch = inputHTMLElement.value;
     console.log(fruitToSearch);
     // Recorro el array
-    fruits.forEach(function(element, idx){
+    let data = JSON.parse(localStorage.getItem('fruits'))
+    data.forEach(function(element, idx){
         // Por cada elemento del array compruebo si ese elemento coincide con lo que había en el input
         if(fruitToSearch === element) {
             // Si coincide elimino ese elemento del array a través de su índice
             // SPLICE arrayName.splice(indice, cantidadDeElementosABorrar, Reemplazo)
-            fruits.splice(idx, 1);
+            data.splice(idx, 1);
         }
     });
+    localStorage.setItem('fruits', JSON.stringify(data))
+    fruits = JSON.parse(localStorage.getItem('fruits'))
     // Volver a listar las frutas en cada llamada a la función
     console.log(fruits);
-    listFruits();
+    listFruits(fruits);
 }
 
 function deleteFruitByIndex(index) {
