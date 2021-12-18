@@ -30,31 +30,32 @@
             <h1>Nuevo producto</h1>
             <div class="row">
                 <div class="col-6">
-                    <form class="form-floating" id="product-form" onsubmit="setProduct()">
+                    <form class="form-floating" id="product-form" onsubmit="setProduct(event)">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-12 bg-dark">
+                                <img src="" alt="Product image preload" class="img-preview" id="img-preview">
+                            </div>
+                            <div class="col-12">
                                 <div class="mb-2">
-                                    <label for="">Producto</label>
-                                    <input type="text" name="name" placeholder="producto" class="form-control">
+                                    <label for="">Nombre del producto</label>
+                                    <input type="text" name="name" placeholder="producto" class="form-control" value="Fifa" required>
                                 </div>
                                 <div class="mb-2">
                                     <label for="">Imagen</label>
-                                    <input type="text" name="url" placeholder="Imagen" class="form-control" onchange="loadImage()">
+                                    <input type="text" name="img-url" placeholder="Imagen" class="form-control" onchange="loadImage(event)">
                                 </div>
                                 <div class="mb-2">
                                     <label for="">Detalle</label>
-                                    <textarea rows="3" name="detail" class="form-control"></textarea>  
+                                    <textarea rows="3" name="detail" class="form-control" required >Descripcion del juego</textarea>  
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <img src="" alt="Product image preload" class="img-preview" id="img-preview">
-                            </div>
+                            
                         </div>
                         
                         <div class="mb-2 row">
                             <div class="col-4">
                                 <label for="">Categoría</label>
-                                <select name="category" id="category" class="form-select">
+                                <select name="category" id="category" class="form-select" required>
                                     <option value="sport" selected>Deportes</option>
                                     <option value="action">Action</option>
                                     <option value="shooter">Shooter</option>
@@ -64,40 +65,71 @@
                             </div>
                             <div class="col-4">
                                 <label for="price">Precio</label>
-                                <input type="number" name="price" id="price"  class="form-select">
+                                <input type="number" name="price" id="price" value="100"  class="form-select" required min="0">
                             </div>
                             <div class="col-4">
                                 <label for="">Valoracion</label>
-                                <input type="range" name="rate" min="1" max="10" step="0.25" value="5" class="form-range" onchange="">
+                                <input type="range" name="rate" min="1" max="10" step="0.25" value="5" class="form-range" onchange="" required>
                             </div>
                         </div>
         
                         <div class="mb-2 row">
                             <div class="col-6">
                                 <label for="">Etiquetas</label>
-                                <div><input type="checkbox" name="tags" id="" class="form-check-input me-2"><label for="" class="form-check-label">War</label></div>
-                                <div><input type="checkbox" name="tags" id="" class="form-check-input me-2"><label for="" class="form-check-label">Adventure</label></div>
-                                <div><input type="checkbox" name="tags" id="" class="form-check-input me-2"><label for="" class="form-check-label">Strategy</label></div>
-                                <div><input type="checkbox" name="tags" id="" class="form-check-input me-2"><label for="" class="form-check-label">Multiplayer</label></div>
-                                <div><input type="checkbox" name="tags" id="" class="form-check-input me-2"><label for="" class="form-check-label">Single Player</label></div>
-                                <div><input type="checkbox" name="tags" id="" class="form-check-input me-2"><label for="" class="form-check-label">Online</label></div>
+                                <div>
+                                    <input type="checkbox" name="tags" id="" class="form-check-input me-2" textValue="war">
+                                    <label for="" class="form-check-label">War</label>
+                                </div>
+                                <div>
+                                    <input textValue="adventure" type="checkbox" name="tags" id="" class="form-check-input me-2" >
+                                    <label for="" class="form-check-label">Adventure</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="tags" id="" class="form-check-input me-2" textValue="strategy">
+                                    <label for="" class="form-check-label">Strategy</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="tags" id="" class="form-check-input me-2" textValue="multiplayer">
+                                    <label for="" class="form-check-label">Multiplayer</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="tags" id="" class="form-check-input me-2" textValue="single_player">
+                                    <label for="" class="form-check-label">Single Player</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="tags" id="" class="form-check-input me-2" textValue="online">
+                                    <label for="" class="form-check-label">Online</label>
+                                </div>
                             </div>
                             <div class="col-6">
                                 <label for="">Tipo de formato</label>
                                 <div>
-                                    <input type="radio" name="type" id=""><label for="" class="form-check-label">Físico</label>
+                                    <input type="radio" name="type" id="" textValue="physic">
+                                    <label for="" class="form-check-label" >Físico</label>
                                 </div>
                                 <div>
-                                    <input type="radio" name="type" id=""><label for="" class="form-check-label">Digital</label>
+                                    <input type="radio" name="type" id=""textValue="digital">
+                                    <label for="" class="form-check-label" >Digital</label>
+                                </div>
+                                <label for="launch-date">Fecha lanzamiento</label>
+                                <input type="date" name="launch-date" id="launch-date" required>
+                                
+                                <div>
+                                    <h4>En stock</h4>
+                                    <input type="checkbox" name="stock" id="stock" class="form-check-input me-2">
+                                    <label for="stock">Disponible</label>
                                 </div>
                             </div>
-                           
+                            
                         </div>
                         <button class="btn btn-primary" type="submit">Cargar</button>
                     </form>
                 </div>
                 <div class="col-6">
-                        LISTADO PRODUCTOS
+                        <h2>LISTADO PRODUCTOS</h2>
+                        <div id="game-list">
+
+                        </div>
                 </div>
             </div>
             
