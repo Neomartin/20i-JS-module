@@ -1,7 +1,6 @@
 body {
     background-color: aliceblue;
 }
-
 .custom-div {
     margin: auto;
     width: 50%;
@@ -17,4 +16,5 @@ body {
     color: dodgerblue;
     text-align: center;
     font-weight: 800;
+
 }
