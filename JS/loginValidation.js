@@ -1,4 +1,4 @@
-import * as boostrap from './bootstrap.esm.min'
+
 
 // Checkeo que el usuario este logueado sino lo redirecciono al Login
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));

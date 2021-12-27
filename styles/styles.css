@@ -1,3 +1,20 @@
 body {
     background-color: aliceblue;
 }
+
+.custom-div {
+    margin: auto;
+    width: 50%;
+    color: green;
+    font-size: 2rem;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 1px 3px 5px rgb(109, 109, 109);
+}
+
+.my-clock {
+    font-size: 2rem;
+    color: dodgerblue;
+    text-align: center;
+    font-weight: 800;
+}
