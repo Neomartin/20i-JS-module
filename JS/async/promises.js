@@ -7,7 +7,7 @@ const asincrona = (value) => {
             // console.log('Llamada async');
             // x = value;
             result = value * 8;
-            // if(result > 4000) reject('número demasiado alto')
+            if(result > 4000) reject('número demasiado alto')
             resolve(result)
         }, 2000);
     });   
@@ -15,8 +15,9 @@ const asincrona = (value) => {
 async function asyncAwait() {
   try {
     const user = await asincrona(5);
-    console.log(user)
+    console.log(user);
     const comments = await asincrona(10);
+    console.log(comments)
     await asincrona(20);
     console.log('Elemento intermedio')
     await asincrona(1000);
@@ -28,15 +29,15 @@ async function asyncAwait() {
   }
   
 
-  // .then((resp)=> {
+  // asincrona(5).then((resp)=> {
   //   console.log(resp);
-  //   .then(resp => {
+  //   asincrona(10).then(resp => {
   //       console.log(resp);
-  //       .then(resp => {
+  //       asincrona(20).then(resp => {
   //           console.log(resp);
-  //           .then(resp => {
+  //           asincrona(1000).then(resp => {
   //               console.log(resp);
-  //               .then(resp => {
+  //               asincrona(50).then(resp => {
   //                   console.log(resp);
   //               })
   //           })
@@ -45,7 +46,7 @@ async function asyncAwait() {
   // }).catch(err => swal('Error', `Error al obtener data ${err}`, 'error'));
 }
 asyncAwait();
-
+console.log('Paralelo')
 
 
 
