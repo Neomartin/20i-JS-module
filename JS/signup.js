@@ -1,3 +1,4 @@
+
 // Captar los datos que ingresa el user en el formulario de login
 // Definir que datos que ingrese el user en el formulario sean válidos
 const loginForm = document.querySelector('#loginForm');
@@ -75,10 +76,7 @@ function login(evt) {
     //   - Alguno de los datos no es correcto devuelvo error.
     if(!user || user.password !== password.value) {
         // document.getElementById('boton').click();
-        let myCustomHTMLElement = document.createElement('div')
-            myCustomHTMLElement.innerHTML = 'El usuario fue creado correctamente';
-            myCustomHTMLElement.classList.add('custom-div')
-            document.body.appendChild(myCustomHTMLElement);
+       
 
 
         setTimeout(()=> {
@@ -107,7 +105,16 @@ const registerUser = (evt) => {
 
     if(localUsers.some(localUser => localUser.email === user.email)) return alert('El usuario ya existe')
     localUsers.push(user);
+    let myCustomHTMLElement = document.createElement('div')
+    myCustomHTMLElement.innerHTML = 'El usuario fue creado correctamente';
+    myCustomHTMLElement.classList.add('custom-div')
+    document.body.appendChild(myCustomHTMLElement);
     localStorage.setItem('users', JSON.stringify(localUsers))
     registerForm.reset();
     registerForm.elements[0].focus()
 }
+
+
+btn.addEventListener('click', (evt)=>{
+
+})

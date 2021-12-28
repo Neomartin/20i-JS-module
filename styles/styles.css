@@ -18,3 +18,8 @@ body {
     font-weight: 800;
 
 }
+
+.sweet-alert button.cancel {
+    background-color: red !important;
+    color: white !;
+}
