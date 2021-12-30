@@ -23,3 +23,56 @@ body {
     background-color: red !important;
     color: white !;
 }
+
+.movie-item {
+    list-style: none;
+    display: flex;
+    border: 1px solid #AAA;
+    border-radius: .5rem;
+    margin-bottom: .5rem;
+    background-color: white;
+}
+
+.movie-item img {
+    width: 140px;
+    height: 200px;
+    border-radius: .5rem 0 0 .5rem;
+    object-fit: cover;
+}
+
+.movie-item > div {
+    display: flex;
+    
+}
+
+.movie-item .movie-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+.movie-data .movie-id {
+    
+    color: dodgerblue;
+}
+.movie-data .movie-rate {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.movie-description {
+    padding: 1rem;
+
+}
+.movie-description h2 {
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.movie-description .movie-overwiev {
+    font-weight: lighter;
+}
+.movie-description .movie-date {
+    color: #999999;
+    font-size: .85rem;
+}

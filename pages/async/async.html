@@ -17,11 +17,51 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     </head>
 <body>
-    <div class="container">
+    <main class="container">
+      <section>
+        <h1 class="text-primary">Aync</h1>
+      </section>
+      <section>
         <h1 class="text-primary">Promises</h1>
-        <div id="result"></div>
-    </div>
-    <div class="row p-5">
+      </section>
+      <section>
+        <h1 class="text-dark">Fetch</h1>
+        <p class="lead">API The Movie Database</p>
+        <div class="p-3">
+            <label for="searchMovie" class="form-label">Película</label>
+            <input type="text" name="search" id="searchMovie" class="form-control" placeholder="Ingrese nombre de película a buscar" onkeyup="searchMovie(event.target.value, 1)" minlength="3">
+            <nav aria-label="Page navigation example">
+              <nav aria-label="...">
+                <ul class="pagination">
+                  <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="searchByPage(1)">1</a></li>
+                  <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="#" onclick="searchByPage(2)">2</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="searchByPage(3)">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="searchByPage(4)">4</a></li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="searchByPage(5)">5</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li>
+                </ul>
+              </nav>
+            </nav>
+        </div>
+        <div class="movie-list-container">
+          <ul class="movie-list" id="movie-list">
+          </ul>
+        </div>
+      </section>
+    </main>
+
+
+
+
+
+    <!-- <div class="row p-5">
         <div class="col-xs-12 col-sm-6 mt-3 ">
             <a id="btn1" class="btn btn-danger btn-block" href="#" role="button">Swal</a>
           </div>
@@ -43,9 +83,10 @@
           <div class="col-xs-12 col-sm-6 mt-3">
             <a id="btn7" class="btn btn-danger btn-block" href="#" role="button">Con imagen personalizada</a>
           </div>
-    </div>
+    </div> -->
         
       
-    <script src="/JS/async/promises.js"></script>
+    <!-- <script src="/JS/async/promises.js"></script> -->
+    <script src="/JS/async/fetch.js"></script>
 </body>
 </html>
